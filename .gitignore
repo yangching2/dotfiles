@@ -1,6 +1,20 @@
-*/
+/*
+
 
 !nvim/
-!iterm2/
+!nvim/*
+!nvim/*/*
+!nvim/*/*/*
+
 !tmux/
+!tmux/*
+!tmux/**
+
+!iterm2/
+!iterm2/*
+!iterm2/**
+
 !lvim/
+!lvim/*
+!lvim/*/*
+!lvim/*/*/*
