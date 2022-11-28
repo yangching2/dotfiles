@@ -17,7 +17,6 @@ opt.wrap = false -- disable line wrapping
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
--- cursor line
 opt.cursorline = true -- highlight the current cursor line
 
 -- appearance
@@ -42,3 +41,10 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 
 -- autoindent and smart indent
 opt.breakindent = true
+opt.timeoutlen = 500
+if vim.g.neovide then
+	print("opening in neovide")
+	-- vim.g.neovide_fullscreen = true
+	vim.g.neovide_multigrid = true
+	opt.guifont = { "Hack", ":h24" }
+end

@@ -16,3 +16,9 @@ saga.init_lsp_saga({
 		edit = "<CR>",
 	},
 })
+
+-- local ops = { silent = true, noremap = true }
+--
+-- local keymap = vim.keymap
+-- keymap.set("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", ops)
+-- keymap.set("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", ops)
