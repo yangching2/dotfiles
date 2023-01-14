@@ -1,8 +1,5 @@
 /*
 
-nvim/plugin/packer_compiled.lua
-lvim/plugin/packer_compiled.lua
-
 !nvim/
 !nvim/*
 !nvim/*/*
@@ -20,5 +17,4 @@ lvim/plugin/packer_compiled.lua
 !lvim/*
 !lvim/*/*
 !lvim/*/*/*
-
 
