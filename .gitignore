@@ -9,9 +9,6 @@
 !tmux/*
 !tmux/**
 
-!iterm2/
-!iterm2/*
-!iterm2/**
 
 !lvim/
 !lvim/*
