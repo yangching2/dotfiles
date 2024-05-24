@@ -5,17 +5,14 @@ end
 
 local wk = require("which-key")
 
-
 -- Use K to show documentation in preview window.
 function _G.show_docs()
-    local cw = vim.fn.expand('<cword>')
-    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
-        vim.api.nvim_command('h ' .. cw)
-    elseif vim.api.nvim_eval('coc#rpc#ready()') then
-        vim.fn.CocActionAsync('doHover')
-    else
-        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-    end
+	local cw = vim.fn.expand("<cword>")
+	if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
+		vim.api.nvim_command("h " .. cw)
+	else
+		vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
+	end
 end
 
 -- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
@@ -41,7 +38,7 @@ wk.register({
 		name = "Go To / Comment",
 		-- r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References", noremap = true, unique = true },
 		-- d = { "<cmd>Telescope lsp_definitions<cr>", "Go to Definition" },
-   		-- D = { "<cmd>Lspsaga peek_definition<cr>", "Peek Definition" },
+		-- D = { "<cmd>Lspsaga peek_definition<cr>", "Peek Definition" },
 		-- f = { "<cmd>Lspsaga lsp_finder<cr>", "LSP finder", noremap = true },
 		-- j = { "<cmd> Lspsaga diagnostic_jump_next<cr>", "diagnostic_jump_next", noremap = true, silent = true },
 		-- k = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "diagnostic_jump_prev", noremap = true, silent = true },
@@ -55,4 +52,4 @@ wk.register({
 	-- 	n = { ":tabn<CR>" },
 	-- 	p = { ":tabp<CR>" },
 	-- },
- })
+})

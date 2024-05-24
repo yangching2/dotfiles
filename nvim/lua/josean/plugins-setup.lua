@@ -91,7 +91,7 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
@@ -112,8 +112,6 @@ return packer.startup(function(use)
 
 	-- using packer.nvim
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
-
-  use({ "neoclide/coc.nvim", branch="release" })
 
 	if packer_bootstrap then
 		require("packer").sync()
