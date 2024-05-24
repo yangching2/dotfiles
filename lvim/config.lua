@@ -10,15 +10,32 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
-lvim.colorscheme = "lunar"
+lvim.format_on_save.enabled = true
+lvim.colorscheme = "nightfly"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+-- lvim.leader = "\\"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
+
+local keymap = vim.keymap
+-- delete single character without copying into register
+keymap.set("n", "x", '"_x')
+
+-- use jk to exit insert mode
+keymap.set("i", "jk", "<ESC>")
+
+keymap.set("n", "\\c", ":tabnew<CR>")         -- create new tab
+keymap.set("n", "\\x", ":BufferKill<CR>")     -- close current tab
+keymap.set("n", "<leader>tn", ":tabn<CR>")    --  go to next tab
+keymap.set("n", "<leader>tp", ":tabp<CR>")    --  go to previous tab
+keymap.set("n", "\\<TAB>", ":tabp<CR>")       --  go to previous tab
+keymap.set("n", "\\e", ":NvimTreeToggle<CR>") --  go to previous tab
+
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -43,6 +60,12 @@ lvim.builtin.telescope.defaults.mappings = {
     ["<C-k>"] = actions.move_selection_previous,
   },
 }
+lvim.builtin.telescope.defaults.layout_config.width = 0.95
+lvim.builtin.telescope.defaults.layout_config.height = 0.8
+-- lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 75
+lvim.builtin.telescope.defaults.layout_strategy = 'horizontal'
+lvim.builtin.which_key.setup.plugins.registers = true
+lvim.builtin.which_key.setup.plugins.marks = true
 
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
@@ -60,6 +83,15 @@ lvim.builtin.telescope.defaults.mappings = {
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
+
+keymap.set("n", ";;", "<cmd>Telescope find_files<cr>")
+keymap.set("n", ";b", "<cmd>Telescope buffers<cr>")
+keymap.set("n", ";c", "<cmd>Telescope grep_string<cr>")
+keymap.set("n", ";h", "<cmd>Telescope help_tags<cr>")
+keymap.set("n", ";l", "<cmd>Telescope live_grep<cr>")
+keymap.set("n", ";s", "<cmd>Telescope lsp_document_symbols<cr>")
+keymap.set("n", ";r", "<cmd>Telescope lsp_references<cr>")
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -67,11 +99,13 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.filters.custom = { "^.git$", "node_modules", "dist" }
+lvim.builtin.nvimtree.setup.filters.dotfiles = true;
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
-  "c",
+  -- "c",
   "javascript",
   "json",
   "lua",
@@ -79,8 +113,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "typescript",
   "tsx",
   "css",
-  "rust",
-  "java",
+  -- "rust",
+  -- "java",
   "yaml",
 }
 
@@ -163,12 +197,13 @@ lvim.builtin.treesitter.highlight.enable = true
 -- }
 
 -- Additional Plugins
--- lvim.plugins = {
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+lvim.plugins = {
+  {
+    -- "folke/trouble.nvim",
+    -- cmd = "TroubleToggle",
+    "bluz71/vim-nightfly-colors",
+  },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
