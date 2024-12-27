@@ -1,11 +1,12 @@
 {
   "extras": [
     "lazyvim.plugins.extras.lang.markdown",
-    "lazyvim.plugins.extras.lang.omnisharp"
+    "lazyvim.plugins.extras.lang.omnisharp",
+    "lazyvim.plugins.extras.lang.tailwind"
   ],
   "news": {
-    "NEWS.md": "5950",
+    "NEWS.md": "10960",
     "doc/news.txt": "24447"
   },
-  "version": 6
+  "version": 7
 }
