@@ -23,6 +23,7 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- 
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 keymap.set("n", "\\e", "<cmd>Neotree toggle<CR>", { desc = "Toggle Explorer" }) -- close current split window
+keymap.set("n", "\\<Tab>", "<cmd>tabn<CR>", { desc = "Next Tab" }) -- close current split window
 
 -- keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 -- keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
